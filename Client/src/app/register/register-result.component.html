@@ -1,0 +1,65 @@
+<div class="loader" *ngIf="dataLoading"></div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+  An error occured. Here is the error : {{ errorMessage }}.
+</div>
+<button type="button" routerLink="/host-result" class="btn btn-primary">Back</button>
+<br /><br />
+<div class="alert alert-info" role="alert">
+    Check-In Information !
+  </div>
+<div *ngIf="!savedChanges else savedForm">
+<div *ngIf="!showHistory else showHistoryDiv">
+  <form #registerForm="ngForm" class="form-signin" (ngSubmit)="setRegister(registerForm.value)">
+    <input type="hidden" readonly="" id="hostId" name="hostId" #hostId="ngModel" required [ngModel]="checkInHostId" class="form-control" placeholder="Host ID"
+      autofocus>
+    <input type="text" readonly="" id="hostName" name="hostName" #hostName="ngModel" required [ngModel]="checkInHostName" class="form-control" placeholder="Host Name"
+      autofocus>
+    <div *ngIf="checkInHostId">
+      <button type="button" (click)="getRegister('host');showHistory=!showHistory" class="btn btn-primary">View Host
+        History</button>
+    </div>
+    <input type="hidden" readonly="" id="guestId" name="guestId" required #guestId="ngModel" [ngModel]="checkInGuestId" class="form-control" placeholder="Guest ID"
+      autofocus>
+    <input type="text" readonly="" id="guestName" name="guestName" required #guestName="ngModel" [ngModel]="checkInGuestName" class="form-control" placeholder="Guest Name"
+      autofocus>
+    <div *ngIf="checkInGuestId">
+      <button type="button" (click)="getRegister('guest');showHistory=!showHistory" class="btn btn-primary">View Guest
+        History</button>
+    </div>
+    <input type="text" readonly="" id="checkInDTTM" name="checkInDTTM" required #checkInDTTM="ngModel" [ngModel]="currentDttm" class="form-control"
+      placeholder="Check-In DTTM" autofocus>
+      <input type="text" id="purpose" name="purpose" ngModel class="form-control"
+      placeholder="Purpose of Visit" autofocus>
+    <div *ngIf="!registerForm.valid else showSubmitButton">
+      <button disabled class="btn btn-lg btn-light btn-block" type="submit">Check-In</button>
+    </div>
+    <ng-template #showSubmitButton>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Check-In</button>
+    </ng-template>
+    <button routerLink="/guest-result" class="btn btn-lg btn-primary btn-block" type="button">Pick Visitor</button>
+  </form>
+  <br /><br />
+</div>
+
+<ng-template #showHistoryDiv>
+  <h6>Visitor Register History</h6>
+  <button type="button" (click)="showHistory=!showHistory" class="btn btn-primary">Close History</button>
+  <br />
+  <ul>
+    <li *ngFor="let item of docData">
+      Host: {{ item.hostName }}<br/>
+      Guest: {{ item.guestName }}<br/>
+      CheckIn: {{ item.checkInDTTM }}<br/>
+      Purpose: {{ item.purpose }}<br/>
+    </li>
+  </ul>
+</ng-template>
+</div>
+<ng-template #savedForm>
+    <br/><br/>
+    <div class="alert alert-danger" role="alert">
+        Your changes are saved.
+      </div>
+    <br/><br/>
+  <button routerLink="/login" class="btn btn-lg btn-primary" type="button">new Guest Check-In</button>
+</ng-template>

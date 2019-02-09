@@ -1,0 +1,33 @@
+<div class="loader" *ngIf="dataLoading"></div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+  An error occured. Here is the error : {{ errorMessage }}.
+</div>
+<div *ngIf="!savedChanges else logoutForm">
+<form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" autofocus
+  #inputEmail="ngModel" autofocus required email ngModel>
+  <div class="alert alert-danger" role="alert" *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
+    Please enter a valid email.
+  </div>
+  <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password"
+  #inputPassword="ngModel" required minlength="3" maxlength="20" ngModel>
+  <div class="alert alert-danger" role="alert" *ngIf="inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)">
+    Please enter a valid password between 3 to 20 chars.
+  </div>
+  <div *ngIf="!loginForm.valid else showSubmitButton">
+  <button class="btn btn-lg btn-light btn-block" disabled="" type="submit">Log in</button>
+</div>
+<ng-template #showSubmitButton>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+</ng-template>
+  <br />
+  <button class="btn btn-lg btn-primary btn-block" type="button" routerLink="/signup">Create New Account</button>
+</form>
+</div>
+<ng-template #logoutForm>
+  <button (click)="logout()" class="btn btn-lg btn-primary" type="button">Logout</button>
+  <br/><br/>
+  <h1 class="h3 mb-3 font-weight-normal">Vistior Register</h1>
+  <button routerLink="/host-result" class="btn btn-lg btn-primary btn-block" type="button">Guest Check In</button>
+</ng-template>

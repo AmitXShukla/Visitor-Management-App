@@ -1,0 +1,24 @@
+<div class="loader" *ngIf="dataLoading"></div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+  An error occured. Here is the error : {{ errorMessage }}.
+</div>
+<button type="button" routerLink="/guest-search" class="btn btn-primary">Search</button>
+&nbsp;
+<button type="button" routerLink="/guest-add" class="btn btn-primary">Add New Guest</button>
+<br /><br />
+<div class="alert alert-info" role="alert">
+  Check-In with Guest !
+</div>
+<br /><br />
+<div *ngFor="let item of docData">
+  Name: {{ item.inputName }} <br />
+  EMail: {{ item.inputEmail }} <br />
+  Address: {{ item.inputAddress }} <br />
+  Phone: {{ item.inputPhone }} <br />
+  Picture: {{ item.pic }} <br />
+  <button type="button" routerLink="/guest-edit/{{item._id}}" class="btn btn-info">Edit Guest</button>
+  &nbsp;
+  <!-- <button type="button" routerLink="/register-result/{{item._id}}" class="btn btn-primary">Check-In</button>-->
+  <button type="button" (click)="checkIn(item._id,item.inputName)" class="btn btn-primary">Check-In</button>
+  <br /><br />
+</div>

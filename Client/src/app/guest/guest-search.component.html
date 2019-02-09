@@ -1,0 +1,12 @@
+<button type="button" routerLink="/guest-add" class="btn btn-primary">Add New</button>
+&nbsp;
+<button type="button" routerLink="/guest-result" class="btn btn-primary">Top Results</button>
+<br/><br/>
+<h6>Search Guest</h6>
+<form #srchForm="ngForm" class="form-signin" (ngSubmit)="getGuests(srchForm.value)">
+    <input type="text" id="inputName" name="inputName" ngModel class="form-control" placeholder="Name" autofocus>
+    <input type="text" id="inputAddress" name="inputAddress" ngModel class="form-control" placeholder="Address" autofocus>
+    <input type="email" id="inputEmail" name="inputEmail" ngModel class="form-control" placeholder="Email address" autofocus>
+    <input type="text" id="inputPhone" name="inputPhone" ngModel class="form-control" placeholder="Phone" autofocus>
+   <button class="btn btn-lg btn-primary btn-block" type="submit">Search Guest</button>
+  </form>

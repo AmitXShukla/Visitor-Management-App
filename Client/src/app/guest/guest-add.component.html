@@ -1,0 +1,52 @@
+<div class="loader" *ngIf="dataLoading"></div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+  An error occured. Here is the error : {{ errorMessage }}.
+</div>
+<button type="button" routerLink="/guest-search" class="btn btn-primary">Search</button>
+&nbsp;
+<button type="button" routerLink="/guest-result" class="btn btn-primary">Top Results</button>
+<br/><br/>
+<div *ngIf="!savedChanges else savedForm">
+  <h6>Add New Guest</h6>
+  <form class="form-signin" #addForm="ngForm" (ngSubmit)="setGuest(addForm.value)">
+      <input type="text" id="inputName" name="inputName" class="form-control" placeholder="Name"
+      #inputName="ngModel" autofocus required ngModel minlength="3" maxlength="50">
+      <div class="alert alert-danger" role="alert" *ngIf="inputName.invalid && (inputName.dirty || inputName.touched)">
+          Please enter a valid Name between 3 and 50 characters.
+        </div>
+      <input type="text" id="inputAddress" name="inputAddress" class="form-control" placeholder="Address"
+      #inputAddress="ngModel" autofocus required ngModel minlength="3" maxlength="150">
+      <div class="alert alert-danger" role="alert" *ngIf="inputAddress.invalid && (inputAddress.dirty || inputAddress.touched)">
+          Please enter a valid Address between 3 and 150 characters.
+        </div>
+      <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address"
+      #inputEmail="ngModel" email autofocus required ngModel>
+      <div class="alert alert-danger" role="alert" *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
+          Please enter a valid email.
+        </div>
+      <input type="text" id="inputPhone" name="inputPhone" class="form-control" placeholder="Phone"
+      #inputPhone="ngModel" pattern="^\d*\.?\d+$" minlength="10" autofocus required ngModel>
+      <div class="alert alert-danger" role="alert" *ngIf="inputPhone.invalid && (inputPhone.dirty || inputPhone.touched)">
+          Please enter a valid phone number.
+        </div>
+      <input type="text" id="inputComments" name="inputComments" class="form-control" placeholder="Comments"
+      #inputComments="ngModel" autofocus required ngModel>
+      <div class="alert alert-danger" role="alert" *ngIf="inputComments.invalid && (inputComments.dirty || inputComments.touched)">
+          Please enter valid comments.
+        </div>
+        <div *ngIf="!addForm.valid else showSubmitButton">
+            <button class="btn btn-lg btn-light btn-block" disabled="" type="button">Create New Guest</button>
+          </div>
+          <ng-template #showSubmitButton>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Create New Guest</button>
+          </ng-template>
+    </form>
+</div>
+<ng-template #savedForm>
+    <br/><br/>
+    <div class="alert alert-danger" role="alert">
+        Your changes are saved.
+      </div>
+    <br/><br/>
+  <button routerLink="/guest-result" class="btn btn-lg btn-primary" type="button">Back to Results</button>
+</ng-template>
