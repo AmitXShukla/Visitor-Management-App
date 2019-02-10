@@ -14,7 +14,7 @@ Store all visitor & host records electronically.<br/>
 10. Auto Face Recogniziion (Pro version only).<br/>
 
 <i>send an email to info@elishconsulting.com for Pro version enquiries.</i>
-<h2><a href="https://www.youtube.com/playlist?list=PLp0TENYyY8lHJGZX6-Ek4MkvAnzWmC9oa">Video Tutorials Link!</a></h2>
+<h2><a href="https://www.youtube.com/playlist?list=PLp0TENYyY8lEZgC9Ug2RwOr62NLrwaCAr">Video Tutorials Link!</a></h2>
 <h2>Tools: </h2>
 <b>front-end:</b> Angular 7, HTML CSS JS & Bootstrap<br/>
 <b>back-end:</b> MONGODB (free)<br/>
