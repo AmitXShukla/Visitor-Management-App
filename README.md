@@ -11,7 +11,7 @@ Store all visitor & host records electronically.<br/>
 7. Paperless and Mobile on-premise App.<br/>
 8. Instant access to ALL guest/host historical records at guest check-in.<br/>
 9. No Thumb expressions or card punching to verify identify.<br/>
-10. Auto Face Recogniziion (Pro version only).<br/>
+10. Auto Face Recognition (Pro version only).<br/>
 
 <i>send an email to info@elishconsulting.com for Pro version enquiries.</i>
 <h2><a href="https://www.youtube.com/playlist?list=PLp0TENYyY8lEZgC9Ug2RwOr62NLrwaCAr">Video Tutorials Link!</a></h2>
@@ -49,6 +49,6 @@ $ ng serve<br/>
 <h2>Back end :-</h2>
 $ cd server<br/>
 $ npm init<br/>
-$ npm install --save nodemon cors express dotenv jsonwebtoken mongoose bcrypt body-parser<br/>
+$ npm install --save nodemon cors express dotenv jsonwebtoken mongoose bcrypt@3.0.1 body-parser<br/>
 $ nodemon app<br/>
 <br/>
