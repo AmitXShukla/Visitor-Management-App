@@ -1,3 +1,4 @@
+# Please give a Star * to this repository if you like this project.
 <h2>Visitor Management App</h2>
 <h4>An Electronic Visitor register App for storing Host & Guest Records, Picture Attendance with GPS Locations</h4>
 <h2>Objective</h2>
