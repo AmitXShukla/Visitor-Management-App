@@ -6,14 +6,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BackendService {
-  public checkInHostId;
-  public checkInHostName;
-  public checkInGuestId;
-  public checkInGuestName;
+  public checkInHostId: any;
+  public checkInHostName: any;
+  public checkInGuestId: any;
+  public checkInGuestName: any;
 
   constructor(private _http: HttpClient) { }
 
-  login(formData) {
+  login(formData: any) {
     /**
      let fakeResponse_1 = {
        "errorCode" : 0,
@@ -42,11 +42,12 @@ export class BackendService {
      return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_3)}, 2000)});
      */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/login", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/login", formData, httpOptions);
   }
 
-  setUser(formData) {
+  setUser(formData: any) {
     /**
     let fakeResponse_1 = {
       "errorCode" : 0,
@@ -75,11 +76,12 @@ export class BackendService {
     return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_1)}, 2000)});
     */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/signup", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/signup", formData, httpOptions);
   }
 
-  setHost(formData) {
+  setHost(formData: any) {
     /**
    let fakeResponse_1 = {
      "errorCode" : 0,
@@ -100,11 +102,12 @@ export class BackendService {
    return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_2)}, 2000)});
    */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/sethost", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/sethost", formData, httpOptions);
   }
 
-  getHost(docId) {
+  getHost(docId: string) {
     let formData = { _id: "" };
     formData._id = docId;
     /**
@@ -131,10 +134,11 @@ export class BackendService {
     return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_3)}, 2000)});
     */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/gethost", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/gethost", formData, httpOptions);
   }
-  updateHost(formData) {
+  updateHost(formData: { _id: any; }) {
     /**
    let fakeResponse_1 = {
      "errorCode" : 0,
@@ -155,10 +159,11 @@ export class BackendService {
    return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_2)}, 2000)});
    */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/updatehost", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/updatehost", formData, httpOptions);
   }
-  deleteHost(formData) {
+  deleteHost(formData: { _id: any; }) {
     /**
     let fakeResponse_1 = {
       "errorCode" : 0,
@@ -183,10 +188,11 @@ export class BackendService {
     return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_3)}, 2000)});
     */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/deletehost", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/deletehost", formData, httpOptions);
   }
-  getHosts(formData) {
+  getHosts(formData: any) {
     /**
     let fakeResponse_1 = {
       "errorCode" : 0,
@@ -231,10 +237,11 @@ export class BackendService {
    return of(fakeResponse_3);
    */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/gethosts", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/gethosts", formData, httpOptions);
   }
-  setGuest(formData) {
+  setGuest(formData: any) {
     /**
    let fakeResponse_1 = {
      "errorCode" : 0,
@@ -255,11 +262,12 @@ export class BackendService {
    return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_2)}, 2000)});
    */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/setguest", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/setguest", formData, httpOptions);
   }
 
-  getGuest(docId) {
+  getGuest(docId: string) {
     let formData = { _id: "" };
     formData._id = docId;
     /**
@@ -286,10 +294,11 @@ export class BackendService {
     return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_3)}, 2000)});
     */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/getguest", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/getguest", formData, httpOptions);
   }
-  updateGuest(formData) {
+  updateGuest(formData: { _id: any; }) {
     /**
    let fakeResponse_1 = {
      "errorCode" : 0,
@@ -310,10 +319,11 @@ export class BackendService {
    return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_2)}, 2000)});
    */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/updateguest", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/updateguest", formData, httpOptions);
   }
-  deleteGuest(formData) {
+  deleteGuest(formData: { _id: any; }) {
     /**
     let fakeResponse_1 = {
       "errorCode" : 0,
@@ -338,10 +348,11 @@ export class BackendService {
     return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_3)}, 2000)});
     */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/deleteguest", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/deleteguest", formData, httpOptions);
   }
-  getGuests(formData) {
+  getGuests(formData: any) {
     /**
     let fakeResponse_1 = {
       "errorCode" : 0,
@@ -386,10 +397,11 @@ export class BackendService {
    return of(fakeResponse_3);
    */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/getguests", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/getguests", formData, httpOptions);
   }
-  setCheckIn(hostId, hostName, guestId, guestName) {
+  setCheckIn(hostId: string, hostName: string, guestId: string, guestName: string) {
     if (hostId) {
       this.checkInHostId = hostId;
       this.checkInHostName = hostName;
@@ -399,7 +411,7 @@ export class BackendService {
       this.checkInGuestName = guestName;
     }
   }
-  setRegister(formData) {
+  setRegister(formData: any) {
     /**
     let fakeResponse_1 = {
       "errorCode" : 0,
@@ -420,10 +432,11 @@ export class BackendService {
     return Observable.create(observer => {setTimeout(() => {observer.next(fakeResponse_2)}, 2000)});
     */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/setregister", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/setregister", formData, httpOptions);
   }
-  getRegister(formData) {
+  getRegister(formData: { _id: string; srchType: string; }) {
     /**
     let fakeResponse_1 = {
       "errorCode" : 0,
@@ -468,7 +481,8 @@ export class BackendService {
    return of(fakeResponse_3);
    */
     let token = localStorage.getItem('token') ? localStorage.getItem('token') : "abcd";
+    token = !token ? "abcd" : token;
     let httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'token': token }) };
-    return this._http.post("http://localhost:3000/getregister", formData, httpOptions);
+    return this._http.post("http://localhost:5001/testtmp-3cf1f/us-central1/app/getregister", formData, httpOptions);
   }
 }

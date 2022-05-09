@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-host-result',
@@ -11,38 +12,39 @@ export class HostResultComponent implements OnInit, OnDestroy {
   error: boolean = false;
   errorMessage: String = 'Something went wrong with App';
   dataLoading: boolean = false;
-  private querySubscription;
+  private querySubscription: Subscription | undefined;
   savedChanges: boolean = false;
   docId: any;
-  docData;
+  docData: any;
 
   constructor(private _backendService: BackendService, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
     this._route.queryParams.subscribe(
       res => {
-      this.docId = res;
-      this.getData();
-     });
+        this.docId = res;
+        this.getData();
+      });
   }
   getData() {
     this.dataLoading = true;
     return this.querySubscription = this._backendService.getHosts(this.docId).subscribe((res) => {
-      if (res["errorCode"] > 0) {
+      let Res: { [index: string]: any } = res;
+      if (Res["errorCode"] > 0) {
         this.error = false;
         this.errorMessage = "";
         this.dataLoading = false;
-        this.docData = res["data"];
+        this.docData = Res["data"];
       } else {
         this.error = true;
-        this.errorMessage = res["errorMessage"];
+        this.errorMessage = Res["errorMessage"];
         this.dataLoading = false;
         this.savedChanges = true;
       }
     },
       (error) => {
         this.error = true;
-       // this.errorMessage = error.message;
+        // this.errorMessage = error.message;
         this.dataLoading = false;
         this.savedChanges = true;
       },
@@ -50,7 +52,7 @@ export class HostResultComponent implements OnInit, OnDestroy {
         this.dataLoading = false;
       });
   }
-  checkIn(hostId, hostName) {
+  checkIn(hostId: any, hostName: any) {
     this._backendService.setCheckIn(hostId, hostName, '', '');
     this._router.navigate(['/register-result']);
   }

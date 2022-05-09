@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-guest-search',
   templateUrl: './guest-search.component.html',
-  styleUrls: ['./guest-search.component.css']
+  // styleUrls: ['./guest-search.component.css']
 })
 export class GuestSearchComponent implements OnInit {
 
@@ -12,7 +12,7 @@ export class GuestSearchComponent implements OnInit {
 
   ngOnInit() {
   }
-  getGuests(formData) {
-    this._router.navigate(['/guest-result'], { queryParams: {'inputName': formData.inputName, 'inputAddress': formData.inputAddress, 'inputEmail': formData.inputEmail, 'inputPhone': formData.inputPhone}});
+  getGuests(formData: { inputName: any; inputAddress: any; inputEmail: any; inputPhone: any; }) {
+    this._router.navigate(['/guest-result'], { queryParams: { 'inputName': formData.inputName, 'inputAddress': formData.inputAddress, 'inputEmail': formData.inputEmail, 'inputPhone': formData.inputPhone } });
   }
 }

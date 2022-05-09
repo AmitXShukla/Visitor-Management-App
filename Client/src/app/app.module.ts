@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ScrollDispatchModule} from '@angular/cdk/scrolling';
+// import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -43,7 +43,7 @@ import { AuthGuardService } from './services/auth-guard.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ScrollDispatchModule,
+    // ScrollDispatchModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

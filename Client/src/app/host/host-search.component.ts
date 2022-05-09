@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-host-search',
   templateUrl: './host-search.component.html',
-  styleUrls: ['./host-search.component.css']
+  // styleUrls: ['./host-search.component.css']
 })
 export class HostSearchComponent implements OnInit {
 
@@ -12,7 +12,7 @@ export class HostSearchComponent implements OnInit {
 
   ngOnInit() {
   }
-  getHosts(formData) {
-    this._router.navigate(['/host-result'], { queryParams: {'inputName': formData.inputName, 'inputAddress': formData.inputAddress, 'inputEmail': formData.inputEmail, 'inputPhone': formData.inputPhone}});
+  getHosts(formData: { inputName: any; inputAddress: any; inputEmail: any; inputPhone: any; }) {
+    this._router.navigate(['/host-result'], { queryParams: { 'inputName': formData.inputName, 'inputAddress': formData.inputAddress, 'inputEmail': formData.inputEmail, 'inputPhone': formData.inputPhone } });
   }
 }

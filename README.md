@@ -24,7 +24,7 @@ Store all visitor & host records electronically.<br/>
 <i>send an email to info@elishconsulting.com for Pro version enquiries.</i>
 <h2><a href="https://www.youtube.com/playlist?list=PLp0TENYyY8lEZgC9Ug2RwOr62NLrwaCAr">Video Tutorials Link!</a></h2>
 <h2>Tools: </h2>
-<b>front-end:</b> Angular 7, HTML CSS JS & Bootstrap<br/>
+<b>front-end:</b> Angular 13, HTML CSS JS & Bootstrap<br/>
 <b>back-end:</b> MONGODB (free)<br/>
 Pro Version: MYSQL/PostGre/Oracle/MS SQL, CouchDB, Firebase <br/>
 <b>middleware:</b> JWT, CORS, NodeJS, Express etc.<br/>
@@ -36,7 +36,7 @@ We are going to use part of this website in our Angular App.
 If you are using VisualCode editor, please install a live-server extension.<br/>
 Otherwise, you can use any webserver to host your website.<br/>
 Now, let's create index.html, login.html, signup.html, aboutus.html, dashboard.html, reports.html and settings.html and host this to your webserver.<br/>
-At this point, we only want to make sure that individual html pages work fine only, these pages don't need to be connected or have any business logic because we are going to write all business, routing and other logic in Angular 7.
+At this point, we only want to make sure that individual html pages work fine only, these pages don't need to be connected or have any business logic because we are going to write all business, routing and other logic in Angular 13.
 <br/><br/>
 Before we start, Please make sure you have latest version of node js installed.<br/>
 Let's head out to https://nodejs.org/en/ and grab latest nodejs.<br/>
